@@ -9,7 +9,7 @@ function same([x, y], [j, k]) {
 
 // The game state to search for `cell` is passed as the `this` value of the function.
 function contains(cell) {
-  return this.same((val) => same(val, cell));
+  return this.some((val) => same(val, cell));
 }
 
 function printCell(cell, state) {
