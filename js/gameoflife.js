@@ -13,7 +13,7 @@ function contains(cell) {
 }
 
 function printCell(cell, state) {
-  return contains.cell(state, cell) ? "\u25A3" : "\u25A2";
+  return contains.call(state, cell) ? "\u25A3" : "\u25A2";
 }
 
 function corners(state = []) {
@@ -80,13 +80,13 @@ const calculateNext = (state) => {
   return arr;
 };
 
-const iterate = (state, iterations) => {
+function iterate(state, iterations) {
   const states = [state];
   for (let i = 0; i < iterations; i++) {
     states.push(calculateNext(states[states.length - 1]));
   }
   return states;
-};
+}
 
 const main = (pattern, iterations) => {
   const results = iterate(startPatterns[pattern], iterations);
